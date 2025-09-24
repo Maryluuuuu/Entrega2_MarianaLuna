@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Work Together — Marylu</title>
+  <link rel="stylesheet" href="./estilos.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fustat:wght@200..800&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet" />
+  <link rel="icon" href="./Media/Assets/favicon.ico" />
+  <meta name="description" content="Start a project with Marylu — brief form for brand & web design." />
+</head>
+<body>
+
+  <header class="SiteHeader">
+    <nav class="HeaderNav" aria-label="Primary">
+      <ul>
+        <li><a href="index.html">Main</a></li>
+        <li><a href="AboutMe.html">About me</a></li>
+        <li><a href="Portfolio.html">Portfolio</a></li>
+        <li><a href="WorkTogether.html" aria-current="page">Work Together</a></li>
+        <li><a href="C&S.html">Comments & Suggestions</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="content" class="container">
+    <section class="WTGrid" aria-labelledby="wt-title">
+      <!-- Left: heading + intro -->
+      <div class="WTIntro">
+        <h1 id="wt-title" class="WTTitle">LET'S CREATE<br> SOMETHING GREAT</h1>
+        <p class="WTLead">
+          I appreciate the enthusiasm! Please fill out this form to have a
+          <a class="WTLink" href="mailto:hello@example.com">Creative Talk</a> with me and discuss more about your next great project.
+        </p>
+      </div>
+
+      <!-- Right: form -->
+      <form class="WTForm" action="#" method="post" novalidate>
+        <div class="WTField">
+          <label for="name">Name <span aria-hidden="true">*</span></label>
+          <input id="name" name="name" type="text" autocomplete="name" required />
+        </div>
+
+        <div class="WTField WTField--split">
+          <div>
+            <label for="email">Email <span aria-hidden="true">*</span></label>
+            <input id="email" name="email" type="email" autocomplete="email" required />
+          </div>
+          <div>
+            <label for="phone">Phone</label>
+            <div class="WTPhone">
+              <select aria-label="Country code" class="WTPhoneCode">
+                <option value="+52" selected>🇲🇽 +52</option>
+                <option value="+1">🇺🇸 +1</option>
+                <option value="+34">🇪🇸 +34</option>
+              </select>
+              <input id="phone" name="phone" type="tel" inputmode="tel" placeholder="000 000 0000" />
+            </div>
+          </div>
+        </div>
+
+        <div class="WTField">
+          <label for="brand">Brand / Product Name</label>
+          <input id="brand" name="brand" type="text" />
+        </div>
+
+        <div class="WTField WTField--split">
+          <div>
+            <label for="deadline">Estimated Deadline <span aria-hidden="true">*</span></label>
+            <select id="deadline" name="deadline" required>
+              <option value="" disabled selected>Select…</option>
+              <option>&lt; 1 Month</option>
+              <option>1-2 Months</option>
+              <option>3-4 Months</option>
+              <option>Flexible</option>
+            </select>
+          </div>
+          <div>
+            <label for="budget">Estimated Budget <span aria-hidden="true">*</span></label>
+            <select id="budget" name="budget" required>
+              <option value="" disabled selected>Select…</option>
+              <option>$100 - $250 USD</option>
+              <option>$250 - $500 USD</option>
+              <option>$500 - $1,000 USD</option>
+              <option>$1,000+ USD</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="WTField">
+          <label for="desc">Brief Project Description <span aria-hidden="true">*</span></label>
+          <textarea id="desc" name="desc" rows="6" required></textarea>
+        </div>
+
+        <button class="BtnPrimary WTSubmit" type="submit">Submit</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="SiteFooter" role="contentinfo">
+    <div class="FooterInner">
+      <div class="FooterBrand">Maryluuuuu</div>
+      <nav class="FooterGrid" aria-label="Footer">
+        <div class="FooterCol">
+          <h4>Site</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="AboutMe.html">About me</a></li>
+            <li><a href="Portfolio.html">Portfolio</a></li>
+            <li><a href="WorkTogether.html" aria-current="page">Work together</a></li>
+            <li><a href="C&S.html">Comments &amp; Suggestions</a></li>
+          </ul>
+        </div>
+        <div class="FooterCol">
+          <h4>Social</h4>
+          <ul>
+            <li><a href="#" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="#" target="_blank" rel="noopener">Behance</a></li>
+            <li><a href="#" target="_blank" rel="noopener">LinkedIn</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="FooterBottom">
+      <p>© 2025 Maryluuuuu | All Rights Reserved</p>
+    </div>
+  </footer>
+
+</body>
+</html>

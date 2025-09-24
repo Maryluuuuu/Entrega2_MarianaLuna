@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Comments & Suggestions — Marylu</title>
+  <link rel="stylesheet" href="./estilos.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fustat:wght@200..800&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet" />
+  <link rel="icon" href="./Media/Assets/favicon.ico" />
+  <meta name="description" content="Share your thoughts, comments, and suggestions with Marylu." />
+</head>
+<body>
+
+  <header class="SiteHeader">
+    <nav class="HeaderNav" aria-label="Primary">
+      <ul>
+        <li><a href="index.html">Main</a></li>
+        <li><a href="AboutMe.html">About me</a></li>
+        <li><a href="Portfolio.html">Portfolio</a></li>
+        <li><a href="WorkTogether.html">Work together</a></li>
+        <li><a href="C&S.html" aria-current="page">Comments &amp; Suggestions</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="content" class="container">
+    <section class="CSGrid" aria-labelledby="cs-title">
+      <!-- Izquierda: título + intro -->
+      <div class="CSIntro">
+        <h1 id="cs-title" class="CSTitle">YOUR THOUGHTS<br> MATTER!</h1>
+        <p class="CSLead">
+          Your feedback is valuable to me! Whether you have suggestions, ideas, or just want to share your thoughts, I'd love to hear from you.<br>
+          Let's keep improving together!
+        </p>
+      </div>
+
+      <!-- Derecha: caja + botón -->
+      <form class="CSForm" action="#" method="post" novalidate>
+        <div class="CSField">
+          <label for="improve">What can be improved? <span aria-hidden="true">*</span></label>
+          <textarea id="improve" name="message" rows="6" required></textarea>
+        </div>
+
+        <button class="BtnPrimary CSSubmit" type="submit">Send</button>
+
+        <!-- mensaje de éxito opcional -->
+        <!-- <p class="CSNote" role="status">Thanks for your feedback!</p> -->
+      </form>
+    </section>
+  </main>
+
+  <footer class="SiteFooter" role="contentinfo">
+    <div class="FooterInner">
+      <div class="FooterBrand">Maryluuuuu</div>
+      <nav class="FooterGrid" aria-label="Footer">
+        <div class="FooterCol">
+          <h4>Site</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="AboutMe.html">About me</a></li>
+            <li><a href="Portfolio.html">Portfolio</a></li>
+            <li><a href="WorkTogether.html">Work together</a></li>
+            <li><a href="C&S.html" aria-current="page">Comments &amp; Suggestions</a></li>
+          </ul>
+        </div>
+        <div class="FooterCol">
+          <h4>Social</h4>
+          <ul>
+            <li><a href="#" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="#" target="_blank" rel="noopener">Behance</a></li>
+            <li><a href="#" target="_blank" rel="noopener">LinkedIn</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="FooterBottom">
+      <p>© 2025 Maryluuuuu | All Rights Reserved</p>
+    </div>
+  </footer>
+
+</body>
+</html>
