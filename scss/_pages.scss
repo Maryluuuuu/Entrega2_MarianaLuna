@@ -1,0 +1,11 @@
+// Ejemplos de estilos específicos por página con nesting
+.About {
+  &__photo { border-radius: $radius; }
+  &__skills { display: grid; gap: $space-2; }
+}
+
+.PortfolioList {
+  display: grid; gap: 28px; grid-template-columns: repeat(2, 1fr);
+  @include respond(md){ grid-template-columns: 1fr; gap: 20px; }
+  figure { margin: 0; }
+}

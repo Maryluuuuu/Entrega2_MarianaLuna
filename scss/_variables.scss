@@ -1,0 +1,19 @@
+$color-bg: #151419;
+$color-fg: #ffffff;
+$color-brand: #044BB4;
+$color-accent: #5b8def;
+
+$radius: 10px;
+$w-max: 1200px;
+
+$space-1: .5rem;
+$space-2: 1rem;
+$space-3: 1.5rem;
+$space-4: 2rem;
+
+$bp-sm: 480px;
+$bp-md: 768px;
+$bp-lg: 1024px;
+
+// Ejemplo de operador (función simple para tamaños fluidos)
+@function fluid($min, $max) { @return clamp(#{$min}, 3vw, #{$max}); }

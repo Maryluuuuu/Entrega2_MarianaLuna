@@ -1,0 +1,15 @@
+@mixin respond($bp){
+  @if $bp == sm { @media (min-width: $bp-sm) { @content; } }
+  @else if $bp == md { @media (min-width: $bp-md) { @content; } }
+  @else if $bp == lg { @media (min-width: $bp-lg) { @content; } }
+}
+
+@mixin button($bg, $fg){
+  border: 2px solid $fg; background: transparent; color: $fg;
+  padding: .8rem 1.2rem; border-radius: $radius; font-weight: 500; cursor: pointer;
+  transition: transform .15s, background-color .15s, border-color .15s, box-shadow .15s;
+  &:hover, &:focus-visible{
+    background-color: $bg; border-color: $bg; color: $fg;
+    box-shadow: 0 8px 18px rgba(4,75,180,.35); transform: translateY(-1px);
+  }
+}

@@ -1,0 +1,27 @@
+// Placeholder para @extend
+%card {
+  border: 2px solid $color-fg; border-radius: $radius;
+  padding: clamp(20px, 3vw, 28px); background: transparent; color: $color-fg;
+}
+
+.header {
+  position: sticky; top: 0; background: $color-bg; z-index: 10;
+  nav { display: flex; gap: $space-2; padding: $space-2 0; }
+}
+
+.grid {
+  display: grid; gap: $space-3; grid-template-columns: 1fr;
+  @include respond(md){ grid-template-columns: repeat(2, 1fr); }
+  @include respond(lg){ grid-template-columns: repeat(3, 1fr); }
+}
+
+.hero {
+  display: grid; gap: $space-3; align-items: center;
+  grid-template-columns: 1fr;
+  @include respond(md){ grid-template-columns: 1.2fr 1fr; }
+
+  &__title { font-size: fluid(1.5rem, 2.25rem); }
+  &__cta   { @include button($color-brand, #fff); display: inline-block; }
+}
+
+.card { @extend %card; }
