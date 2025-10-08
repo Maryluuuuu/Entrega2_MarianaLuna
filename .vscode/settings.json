@@ -1,0 +1,14 @@
+{
+  // Compilar SOLO este archivo de entrada
+  "liveSassCompile.settings.includeItems": [
+    "/scss/estilos.scss"
+  ],
+
+  // Formato de salida y carpeta destino
+  "liveSassCompile.settings.formats": [
+    { "format": "expanded", "extensionName": ".css", "savePath": "/CSS" }
+  ],
+
+  // No necesitamos sourcemaps
+  "liveSassCompile.settings.generateMap": false
+}
