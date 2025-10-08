@@ -249,73 +249,249 @@ button, input, textarea, select{
   margin: -1px;
 }
 
-.card {
-  border: 2px solid #ffffff;
-  border-radius: 10px;
-  padding: clamp(20px, 3vw, 28px);
-  background: transparent;
-  color: #ffffff;
+/* // Placeholder para @extend
+%card {
+  border: 2px solid $color-fg; border-radius: $radius;
+  padding: clamp(20px, 3vw, 28px); background: transparent; color: $color-fg;
 }
 
 .header {
-  position: sticky;
-  top: 0;
-  background: #151419;
-  z-index: 10;
-}
-.header nav {
-  display: flex;
-  gap: 1rem;
-  padding: 1rem 0;
+  position: sticky; top: 0; background: $color-bg; z-index: 10;
+  nav { display: flex; gap: $space-2; padding: $space-2 0; }
 }
 
 .grid {
+  display: grid; gap: $space-3; grid-template-columns: 1fr;
+  @include respond(md){ grid-template-columns: repeat(2, 1fr); }
+  @include respond(lg){ grid-template-columns: repeat(3, 1fr); }
+}
+
+.hero {
+  display: grid; gap: $space-3; align-items: center;
+  grid-template-columns: 1fr;
+  @include respond(md){ grid-template-columns: 1.2fr 1fr; }
+
+  &__title { font-size: fluid(1.5rem, 2.25rem); }
+  &__cta   { @include button($color-brand, #fff); display: inline-block; }
+}
+
+.card { @extend %card; } */
+/* =========================
+   LAYOUT (estructura global)
+   - Solo grid/flex/posicionamiento/responsivo
+   - Nada de “skins” (colores, bordes, sombras) → components
+   ========================= */
+/* Breakpoints (si no los tienes ya en _variables/_mixins) */
+/*
+$bp-sm: 480px; $bp-md: 768px; $bp-lg: 1024px;
+@mixin respond($bp){
+  @if $bp == sm { @media (min-width:$bp-sm){ @content; } }
+  @else if $bp == md { @media (min-width:$bp-md){ @content; } }
+  @else if $bp == lg { @media (min-width:$bp-lg){ @content; } }
+}
+*/
+/* ====== Header / Nav ====== */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100; /* estructura; color/fondo en components o base */
+}
+.header .HeaderNav {
+  /* Pega aquí: display flex de nav, alineación, separación entre enlaces,
+     padding vertical del header, etc. Mantén el case exacto de tus clases */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 12px;
+  /* Estados activos son “skin”, pero puedes dejar el weight si ayuda a estructura */
+}
+.header .HeaderNav nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.header .HeaderNav a[aria-current=page] {
+  font-weight: 700;
+}
+
+/* ====== Hero (home) ====== */
+.Hero {
+  /* altura proporcional a la pantalla */
+  min-height: 90vh; /* o 100vh si pantalla completa */
+  display: flex;
+  flex-direction: column;
+  /* centrado en Y dentro de la sección */
+  justify-content: center;
+  gap: 16px;
+  /* centrado en X + respiración lateral */
+  max-width: 1200px;
+  margin: 0 auto;
+  /* padding simétrico (arriba y abajo iguales) para no “empujar” hacia arriba */
+  padding: clamp(32px, 6vh, 72px) clamp(16px, 5vw, 32px);
+}
+
+/* ====== Sección “Sobre mí” (home) ====== */
+.AboutPreview {
+  /* Si en home muestras un mini about en dos columnas: */
   display: grid;
-  gap: 1.5rem;
+  gap: 20px;
   grid-template-columns: 1fr;
 }
 @media (min-width: 768px) {
-  .grid {
+  .AboutPreview {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.AboutPreview .AboutPreview__text {
+  display: grid;
+  gap: 12px;
+}
+.AboutPreview .AboutPreview__media {
+  display: grid;
+  place-items: center;
+}
+
+/* ====== Portfolio (home) ====== */
+.PortfolioGrid {
+  /* Pega aquí la grilla del bloque de portfolio en home */
+  display: grid;
+  gap: 28px;
+  grid-template-columns: repeat(2, 1fr);
+}
+@media (min-width: 768px) {
+  .PortfolioGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* ====== Services / Clients (home) ====== */
+.ServicesGrid, .ClientsGrid {
+  /* Estructura en grilla o flex según lo tengas */
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 768px) {
+  .ServicesGrid, .ClientsGrid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 @media (min-width: 1024px) {
-  .grid {
+  .ServicesGrid, .ClientsGrid {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
-.hero {
+/* ====== Footer ====== */
+.Footer {
+  /* Distribución del footer (no skins) */
   display: grid;
-  gap: 1.5rem;
-  align-items: center;
-  grid-template-columns: 1fr;
+  gap: 16px;
 }
 @media (min-width: 768px) {
-  .hero {
-    grid-template-columns: 1.2fr 1fr;
+  .Footer {
+    grid-template-columns: 1fr auto;
+    align-items: center;
   }
 }
-.hero__title {
-  font-size: clamp(1.5rem, 3vw, 2.25rem);
+
+/* ====== Páginas internas ====== */
+/* AboutMe.html */
+.About {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr;
+  /* &__photo { } */
 }
-.hero__cta {
-  border: 2px solid #fff;
-  background: transparent;
-  color: #fff;
-  padding: 0.8rem 1.2rem;
-  border-radius: 10px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: transform 0.15s, background-color 0.15s, border-color 0.15s, box-shadow 0.15s;
-  display: inline-block;
+@media (min-width: 768px) {
+  .About {
+    grid-template-columns: 1fr 1fr;
+  }
 }
-.hero__cta:hover, .hero__cta:focus-visible {
-  background-color: #044BB4;
-  border-color: #044BB4;
-  color: #fff;
-  box-shadow: 0 8px 18px rgba(4, 75, 180, 0.35);
-  transform: translateY(-1px);
+.About__text {
+  display: grid;
+  gap: 12px;
+}
+
+/* Portfolio.html */
+.PortfolioPage {
+  display: grid;
+  gap: 28px;
+  /* figcaption es “skin”, pero puedes dejar márgenes/posicionamiento aquí */
+}
+.PortfolioPage .PortfolioList {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(2, 1fr);
+}
+@media (min-width: 768px) {
+  .PortfolioPage .PortfolioList {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+.PortfolioPage figure {
+  margin: 0;
+}
+
+/* WorkTogether.html (form) */
+.WorkTogether {
+  display: grid;
+  gap: 24px;
+}
+.WorkTogether .WorkForm {
+  display: grid;
+  gap: 16px;
+  /* Distribución en columnas si aplica */
+}
+@media (min-width: 768px) {
+  .WorkTogether .WorkForm {
+    grid-template-columns: 1fr 1fr;
+    /* utilízalo en inputs que deben abarcar todo */
+  }
+  .WorkTogether .WorkForm .FullRow {
+    grid-column: 1/-1;
+  }
+}
+
+/* C&S.html (otro form / comentarios) */
+.CommentsPage {
+  display: grid;
+  gap: 24px;
+}
+.CommentsPage .ContactForm {
+  display: grid;
+  gap: 16px;
+}
+@media (min-width: 768px) {
+  .CommentsPage .ContactForm {
+    grid-template-columns: 1fr 1fr;
+  }
+  .CommentsPage .ContactForm .FullRow {
+    grid-column: 1/-1;
+  }
+}
+
+/* ====== Helpers de layout globales ====== */
+.Grid {
+  display: grid;
+  gap: 20px;
+}
+
+.Flex {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+.Flex--between {
+  justify-content: space-between;
+}
+.Flex--center {
+  justify-content: center;
 }
 
 .BtnPrimary {
@@ -486,22 +662,6 @@ button, input, textarea, select{
 .titleprovisional {
   color: var(--color-fg);
   text-align: center;
-}
-
-/* ===== Hero responsive y proporcional al viewport ===== */
-.Hero {
-  /* altura proporcional a la pantalla */
-  min-height: 90vh; /* o 100vh si pantalla completa */
-  display: flex;
-  flex-direction: column;
-  /* centrado en Y dentro de la sección */
-  justify-content: center;
-  gap: 16px;
-  /* centrado en X + respiración lateral */
-  max-width: 1200px;
-  margin: 0 auto;
-  /* padding simétrico (arriba y abajo iguales) para no “empujar” hacia arriba */
-  padding: clamp(32px, 6vh, 72px) clamp(16px, 5vw, 32px);
 }
 
 /* Subtítulo arriba del H1 */

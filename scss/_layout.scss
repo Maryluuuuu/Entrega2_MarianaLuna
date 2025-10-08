@@ -1,4 +1,4 @@
-// Placeholder para @extend
+/* // Placeholder para @extend
 %card {
   border: 2px solid $color-fg; border-radius: $radius;
   padding: clamp(20px, 3vw, 28px); background: transparent; color: $color-fg;
@@ -24,4 +24,160 @@
   &__cta   { @include button($color-brand, #fff); display: inline-block; }
 }
 
-.card { @extend %card; }
+.card { @extend %card; } */
+
+/* =========================
+   LAYOUT (estructura global)
+   - Solo grid/flex/posicionamiento/responsivo
+   - Nada de “skins” (colores, bordes, sombras) → components
+   ========================= */
+
+/* Breakpoints (si no los tienes ya en _variables/_mixins) */
+/*
+$bp-sm: 480px; $bp-md: 768px; $bp-lg: 1024px;
+@mixin respond($bp){
+  @if $bp == sm { @media (min-width:$bp-sm){ @content; } }
+  @else if $bp == md { @media (min-width:$bp-md){ @content; } }
+  @else if $bp == lg { @media (min-width:$bp-lg){ @content; } }
+}
+*/
+
+/* ====== Header / Nav ====== */
+.header {
+  position: sticky; top: 0; z-index: 100; /* estructura; color/fondo en components o base */
+
+  .HeaderNav {
+    /* Pega aquí: display flex de nav, alineación, separación entre enlaces,
+       padding vertical del header, etc. Mantén el case exacto de tus clases */
+    display: flex; align-items: center; justify-content: space-between;
+    padding-block: 12px;
+
+    nav ul {
+      display: flex; flex-wrap: wrap; gap: 16px;
+      margin: 0; padding: 0; list-style: none;
+    }
+
+    /* Estados activos son “skin”, pero puedes dejar el weight si ayuda a estructura */
+    a[aria-current="page"] { font-weight: 700; }
+  }
+}
+
+/* ====== Hero (home) ====== */
+.Hero {
+  /* altura proporcional a la pantalla */
+  min-height: 90vh;            /* o 100vh si pantalla completa */
+  display: flex;
+  flex-direction: column;
+
+  /* centrado en Y dentro de la sección */
+  justify-content: center;
+
+  gap: 16px;
+
+  /* centrado en X + respiración lateral */
+  max-width: 1200px;
+  margin: 0 auto;
+
+  /* padding simétrico (arriba y abajo iguales) para no “empujar” hacia arriba */
+  padding: clamp(32px, 6vh, 72px) clamp(16px, 5vw, 32px);
+}
+
+/* ====== Sección “Sobre mí” (home) ====== */
+.AboutPreview {
+  /* Si en home muestras un mini about en dos columnas: */
+  display: grid; gap: 20px; grid-template-columns: 1fr;
+  @include respond(md){ grid-template-columns: 1fr 1fr; }
+
+  .AboutPreview__text { display: grid; gap: 12px; }
+  .AboutPreview__media { display: grid; place-items: center; }
+}
+
+/* ====== Portfolio (home) ====== */
+.PortfolioGrid {
+  /* Pega aquí la grilla del bloque de portfolio en home */
+  display: grid; gap: 28px;
+  grid-template-columns: repeat(2, 1fr);
+
+  @include respond(md){
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* ====== Services / Clients (home) ====== */
+.ServicesGrid, .ClientsGrid {
+  /* Estructura en grilla o flex según lo tengas */
+  display: grid; gap: 24px; grid-template-columns: 1fr;
+  @include respond(md){ grid-template-columns: repeat(2, 1fr); }
+  @include respond(lg){ grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ====== Footer ====== */
+.Footer {
+  /* Distribución del footer (no skins) */
+  display: grid; gap: 16px;
+  @include respond(md){ grid-template-columns: 1fr auto; align-items: center; }
+}
+
+/* ====== Páginas internas ====== */
+
+/* AboutMe.html */
+.About {
+  display: grid; gap: 20px; grid-template-columns: 1fr;
+  @include respond(md){ grid-template-columns: 1fr 1fr; }
+
+  &__text  { display: grid; gap: 12px; }
+  /* &__photo { } */
+}
+
+/* Portfolio.html */
+.PortfolioPage {
+  display: grid; gap: 28px;
+
+  .PortfolioList {
+    display: grid; gap: 24px;
+    grid-template-columns: repeat(2, 1fr);
+
+    @include respond(md){ grid-template-columns: 1fr; gap: 16px; }
+  }
+
+  figure { margin: 0; }
+  /* figcaption es “skin”, pero puedes dejar márgenes/posicionamiento aquí */
+}
+
+/* WorkTogether.html (form) */
+.WorkTogether {
+  display: grid; gap: 24px;
+
+  .WorkForm {
+    display: grid; gap: 16px;
+    /* Distribución en columnas si aplica */
+    @include respond(md){
+      grid-template-columns: 1fr 1fr;
+      .FullRow { grid-column: 1 / -1; } /* utilízalo en inputs que deben abarcar todo */
+    }
+  }
+}
+
+/* C&S.html (otro form / comentarios) */
+.CommentsPage {
+  display: grid; gap: 24px;
+
+  .ContactForm {
+    display: grid; gap: 16px;
+    @include respond(md){
+      grid-template-columns: 1fr 1fr;
+      .FullRow { grid-column: 1 / -1; }
+    }
+  }
+}
+
+/* ====== Helpers de layout globales ====== */
+.Grid {
+  display: grid; gap: 20px;
+}
+.Flex {
+  display: flex; gap: 16px; align-items: center;
+  &--between { justify-content: space-between; }
+  &--center  { justify-content: center; }
+}

@@ -4,26 +4,6 @@
     text-align: center;
 }
 
-/* ===== Hero responsive y proporcional al viewport ===== */
-.Hero {
-  /* altura proporcional a la pantalla */
-  min-height: 90vh;            /* o 100vh si pantalla completa */
-  display: flex;
-  flex-direction: column;
-
-  /* centrado en Y dentro de la sección */
-  justify-content: center;
-
-  gap: 16px;
-
-  /* centrado en X + respiración lateral */
-  max-width: 1200px;
-  margin: 0 auto;
-
-  /* padding simétrico (arriba y abajo iguales) para no “empujar” hacia arriba */
-  padding: clamp(32px, 6vh, 72px) clamp(16px, 5vw, 32px);
-}
-
 /* Subtítulo arriba del H1 */
 .PHero {
   margin: 0;
