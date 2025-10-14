@@ -687,6 +687,277 @@ $bp-sm: 480px; $bp-md: 768px; $bp-lg: 1024px;
   animation: upfade 0.35s ease-out forwards;
 }
 
+/* -------------------------- */
+/* =========================
+   COMPONENTS (skin/estética)
+   - Colores, bordes, sombras, radios
+   - Tipografías puntuales de piezas
+   - Transiciones, animaciones
+   - Apariencia de inputs/botones/cards
+   - NO layout (grid/flex) aquí
+   ========================= */
+/* Placeholders reutilizables */
+.PFCard, .ServiceCard, .ClientCard {
+  border: 2px solid rgba(255, 255, 255, 0.16);
+  border-radius: 10px;
+  padding: clamp(16px, 3vw, 28px);
+  background: rgba(255, 255, 255, 0.02);
+  color: #fff;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.is-elevated {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.is-clickable, .PFCard, .ServiceCard, .ClientCard {
+  cursor: pointer;
+}
+.is-clickable:hover, .PFCard:hover, .ServiceCard:hover, .ClientCard:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.28);
+}
+.is-clickable:focus-visible, .PFCard:focus-visible, .ServiceCard:focus-visible, .ClientCard:focus-visible {
+  outline: 2px solid #044BB4;
+  outline-offset: 3px;
+}
+
+/* ====== NAV (solo “skin”; la distribución quedó en layout) ====== */
+.HeaderNav {
+  background: rgba(0, 0, 0, 0.35);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  -webkit-backdrop-filter: blur(6px);
+          backdrop-filter: blur(6px);
+}
+.HeaderNav a {
+  color: #ffffff;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 0.35rem 0.6rem;
+  border-radius: 8px;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+.HeaderNav a:hover {
+  background: rgba(255, 255, 255, 0.07);
+}
+.HeaderNav a[aria-current=page] {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* ====== BOTONES ====== */
+.BtnHero {
+  border: 2px solid #fff;
+  background: transparent;
+  color: #fff;
+  padding: 0.8rem 1.2rem;
+  border-radius: 10px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  transition: transform 0.15s, background-color 0.15s, border-color 0.15s, box-shadow 0.15s, color 0.15s;
+}
+.BtnHero:hover, .BtnHero:focus-visible {
+  background: #044BB4;
+  border-color: #044BB4;
+  color: #fff;
+  box-shadow: 0 8px 18px rgba(4, 75, 180, 0.35);
+  transform: translateY(-1px);
+}
+
+.BtnPrimary {
+  border: 2px solid #fff;
+  background: transparent;
+  color: #fff;
+  padding: 0.8rem 1.2rem;
+  border-radius: 10px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  transition: transform 0.15s, background-color 0.15s, border-color 0.15s, box-shadow 0.15s, color 0.15s;
+}
+.BtnPrimary:hover, .BtnPrimary:focus-visible {
+  background: #044BB4;
+  border-color: #044BB4;
+  color: #fff;
+  box-shadow: 0 8px 18px rgba(4, 75, 180, 0.35);
+  transform: translateY(-1px);
+}
+
+.BtnGhost {
+  border: 2px solid #ffffff;
+  background: transparent;
+  color: #ffffff;
+  padding: 0.8rem 1.2rem;
+  border-radius: 10px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  transition: transform 0.15s, background-color 0.15s, border-color 0.15s, box-shadow 0.15s, color 0.15s;
+  border-color: currentColor;
+}
+.BtnGhost:hover, .BtnGhost:focus-visible {
+  background: transparent;
+  border-color: transparent;
+  color: #ffffff;
+  box-shadow: 0 8px 18px rgba(4, 75, 180, 0.35);
+  transform: translateY(-1px);
+}
+
+/* Si tienes variaciones como .Btn--small / .Btn--icon, agrégalas aquí */
+/* ====== CARDS (clients, services, portfolio cards) ====== */
+/* Íconos/ilustraciones dentro de cards (tamaño/color) */
+.ServiceIcon,
+.ClientIcon {
+  display: inline-grid;
+  place-items: center;
+  width: clamp(40px, 6vw, 72px);
+  height: clamp(40px, 6vw, 72px);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* Links de portfolio (estados) */
+.PFLink {
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+}
+.PFLink:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.06);
+}
+.PFLink:focus-visible {
+  outline: 2px solid #044BB4;
+  outline-offset: 3px;
+}
+
+/* ====== MEDIA / FOTOS ====== */
+.AboutPhoto {
+  border-radius: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.03);
+  overflow: hidden;
+}
+
+/* Si usas aspect-ratio en figuras o imágenes específicas, déjalo aquí si es “piel” */
+/* ====== FIGURES / CAPTIONS ====== */
+figure {
+  margin: 0;
+}
+
+figcaption {
+  opacity: 0.92;
+  font-size: clamp(0.9rem, 1.4vw, 1rem);
+  line-height: 1.4;
+}
+
+/* ====== FORMULARIOS (apariencia; la grilla quedó en layout) ====== */
+.Input,
+.Textarea,
+.Select {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  padding: 0.75rem 1rem;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+.Input::-moz-placeholder, .Textarea::-moz-placeholder, .Select::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+.Input::placeholder,
+.Textarea::placeholder,
+.Select::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+.Input:hover,
+.Textarea:hover,
+.Select:hover {
+  background: rgba(255, 255, 255, 0.07);
+}
+.Input:focus,
+.Textarea:focus,
+.Select:focus {
+  outline: none;
+  border-color: #044BB4;
+  box-shadow: 0 0 0 3px rgba(4, 75, 180, 0.25);
+}
+
+.Label {
+  font-weight: 600;
+}
+
+.Help {
+  opacity: 0.8;
+  font-size: 0.9rem;
+}
+
+.Error {
+  color: #ff6b6b;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* Botón de enviar en formularios (reutiliza el mixin) */
+.FormSubmit {
+  border: 2px solid #fff;
+  background: transparent;
+  color: #fff;
+  padding: 0.8rem 1.2rem;
+  border-radius: 10px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  transition: transform 0.15s, background-color 0.15s, border-color 0.15s, box-shadow 0.15s, color 0.15s;
+}
+.FormSubmit:hover, .FormSubmit:focus-visible {
+  background: #044BB4;
+  border-color: #044BB4;
+  color: #fff;
+  box-shadow: 0 8px 18px rgba(4, 75, 180, 0.35);
+  transform: translateY(-1px);
+}
+
+/* Estados de validación (si los usas) */
+.Input.is-invalid,
+.Textarea.is-invalid,
+.Select.is-invalid {
+  border-color: #ff6b6b;
+  box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.2);
+}
+
+/* ====== TEXTOS/PARTES ESPECÍFICAS ====== */
+/* Hero: tamaños/énfasis (estructura quedó en layout) */
+.HeroText h1 {
+  font-size: clamp(28px, 4vw, 40px);
+  line-height: 1.15;
+  margin: 0;
+}
+.HeroText p {
+  opacity: 0.95;
+  margin: 0;
+}
+
+/* Footer “skin” */
+.Footer {
+  color: rgba(255, 255, 255, 0.9);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  /* background: rgba(0,0,0,.25); // si te gusta un fondo para separar */
+}
+
+/* ====== ANIMACIONES ====== */
+@keyframes upfade {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.fade-in {
+  opacity: 0;
+  transform: translateY(8px);
+  animation: upfade 0.35s ease-out forwards;
+}
+
+/* ====== UTILES DE INTERACCIÓN ====== */
 .About__photo {
   border-radius: 10px;
 }

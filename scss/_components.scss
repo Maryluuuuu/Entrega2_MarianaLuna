@@ -3,3 +3,183 @@
 
 @keyframes upfade { to { opacity: 1; transform: translateY(0); } }
 .fade-in { opacity: 0; transform: translateY(8px); animation: upfade .35s ease-out forwards; }
+
+/* -------------------------- */
+
+/* =========================
+   COMPONENTS (skin/estética)
+   - Colores, bordes, sombras, radios
+   - Tipografías puntuales de piezas
+   - Transiciones, animaciones
+   - Apariencia de inputs/botones/cards
+   - NO layout (grid/flex) aquí
+   ========================= */
+
+/* Placeholders reutilizables */
+%card {
+  border: 2px solid rgba(255,255,255,.16);
+  border-radius: 10px;
+  padding: clamp(16px, 3vw, 28px);
+  background: rgba(255,255,255,.02);
+  color: #fff;
+  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease, background-color .15s ease;
+}
+%elevated {
+  box-shadow: 0 8px 20px rgba(0,0,0,.25);
+}
+%clickable {
+  cursor: pointer;
+  &:hover { transform: translateY(-1px); box-shadow: 0 10px 22px rgba(0,0,0,.28); }
+  &:focus-visible { outline: 2px solid $color-brand; outline-offset: 3px; }
+}
+
+/* ====== NAV (solo “skin”; la distribución quedó en layout) ====== */
+.HeaderNav {
+  background: rgba(0,0,0,.35);
+  border-bottom: 1px solid rgba(255,255,255,.12);
+  backdrop-filter: blur(6px);
+
+  a {
+    color: $color-fg;
+    font-weight: 500;
+    text-decoration: none;
+    padding: .35rem .6rem;
+    border-radius: 8px;
+    transition: background-color .15s ease, color .15s ease;
+    &:hover { background: rgba(255,255,255,.07); }
+    &[aria-current="page"] { background: rgba(255,255,255,.10); }
+  }
+}
+
+/* ====== BOTONES ====== */
+@mixin button($bg, $fg) {
+  border: 2px solid $fg;
+  background: transparent;
+  color: $fg;
+  padding: .8rem 1.2rem;
+  border-radius: 10px;
+  font-weight: 500;
+  letter-spacing: .2px;
+  transition: transform .15s, background-color .15s, border-color .15s, box-shadow .15s, color .15s;
+  &:hover, &:focus-visible {
+    background: $bg;
+    border-color: $bg;
+    color: $fg;
+    box-shadow: 0 8px 18px rgba(4,75,180,.35);
+    transform: translateY(-1px);
+  }
+}
+
+.BtnHero    { @include button($color-brand, #fff); }
+.BtnPrimary { @include button($color-brand, #fff); }
+.BtnGhost   { @include button(transparent, $color-fg); border-color: currentColor; }
+
+/* Si tienes variaciones como .Btn--small / .Btn--icon, agrégalas aquí */
+
+/* ====== CARDS (clients, services, portfolio cards) ====== */
+.ClientCard  { @extend %card; @extend %clickable; }
+.ServiceCard { @extend %card; @extend %clickable; }
+.PFCard      { @extend %card; @extend %clickable; }
+
+/* Íconos/ilustraciones dentro de cards (tamaño/color) */
+.ServiceIcon,
+.ClientIcon {
+  display: inline-grid;
+  place-items: center;
+  width: clamp(40px, 6vw, 72px);
+  height: clamp(40px, 6vw, 72px);
+  border-radius: 12px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+}
+
+/* Links de portfolio (estados) */
+.PFLink {
+  color: $color-fg;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: color .15s ease, background-color .15s ease, box-shadow .15s ease;
+  &:hover { color: #fff; background: rgba(255,255,255,.06); }
+  &:focus-visible { outline: 2px solid $color-brand; outline-offset: 3px; }
+}
+
+/* ====== MEDIA / FOTOS ====== */
+.AboutPhoto {
+  border-radius: 12px;
+  border: 2px solid rgba(255,255,255,.16);
+  background: rgba(255,255,255,.03);
+  overflow: hidden;
+}
+
+/* Si usas aspect-ratio en figuras o imágenes específicas, déjalo aquí si es “piel” */
+
+/* ====== FIGURES / CAPTIONS ====== */
+figure { margin: 0; }
+figcaption {
+  opacity: .92;
+  font-size: clamp(.9rem, 1.4vw, 1rem);
+  line-height: 1.4;
+}
+
+/* ====== FORMULARIOS (apariencia; la grilla quedó en layout) ====== */
+.Input,
+.Textarea,
+.Select {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,.16);
+  background: rgba(255,255,255,.05);
+  color: $color-fg;
+  padding: .75rem 1rem;
+  transition: border-color .15s ease, box-shadow .15s ease, background-color .15s ease;
+  &::placeholder { color: rgba(255,255,255,.6); }
+  &:hover { background: rgba(255,255,255,.07); }
+  &:focus { outline: none; border-color: $color-brand; box-shadow: 0 0 0 3px rgba($color-brand, .25); }
+}
+
+.Label { font-weight: 600; }
+.Help  { opacity: .8; font-size: .9rem; }
+.Error {
+  color: #ff6b6b;
+  font-size: .9rem;
+  font-weight: 600;
+}
+
+/* Botón de enviar en formularios (reutiliza el mixin) */
+.FormSubmit { @include button($color-brand, #fff); }
+
+/* Estados de validación (si los usas) */
+.Input.is-invalid,
+.Textarea.is-invalid,
+.Select.is-invalid {
+  border-color: #ff6b6b;
+  box-shadow: 0 0 0 3px rgba(255,107,107,.2);
+}
+
+/* ====== TEXTOS/PARTES ESPECÍFICAS ====== */
+/* Hero: tamaños/énfasis (estructura quedó en layout) */
+.HeroText {
+  h1 { font-size: clamp(28px, 4vw, 40px); line-height: 1.15; margin: 0; }
+  p  { opacity: .95; margin: 0; }
+}
+
+/* Footer “skin” */
+.Footer {
+  color: rgba(255,255,255,.9);
+  border-top: 1px solid rgba(255,255,255,.12);
+  /* background: rgba(0,0,0,.25); // si te gusta un fondo para separar */
+}
+
+/* ====== ANIMACIONES ====== */
+@keyframes upfade {
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-in {
+  opacity: 0;
+  transform: translateY(8px);
+  animation: upfade .35s ease-out forwards;
+}
+
+/* ====== UTILES DE INTERACCIÓN ====== */
+.is-clickable { @extend %clickable; }
+.is-elevated  { @extend %elevated;  }
