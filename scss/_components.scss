@@ -70,48 +70,16 @@
   }
 }
 
+// Mantener solo estas líneas (73-75)
 .BtnHero    { @include button($color-brand, #fff); }
 .BtnPrimary { @include button($color-brand, #fff); }
 .BtnGhost   { @include button(transparent, $color-fg); border-color: currentColor; }
 
+// Agregar el media query por separado
+@media (max-width: 480px) {
+  .BtnHero { padding: 8px 16px; }
+}
 /* Si tienes variaciones como .Btn--small / .Btn--icon, agrégalas aquí */
-
-/* ====== CARDS (clients, services, portfolio cards) ====== */
-.ClientCard  { @extend %card; @extend %clickable; }
-.ServiceCard { @extend %card; @extend %clickable; }
-.PFCard      { @extend %card; @extend %clickable; }
-
-/* Íconos/ilustraciones dentro de cards (tamaño/color) */
-.ServiceIcon,
-.ClientIcon {
-  display: inline-grid;
-  place-items: center;
-  width: clamp(40px, 6vw, 72px);
-  height: clamp(40px, 6vw, 72px);
-  border-radius: 12px;
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(255,255,255,.12);
-}
-
-/* Links de portfolio (estados) */
-.PFLink {
-  color: $color-fg;
-  text-decoration: none;
-  border-radius: 8px;
-  transition: color .15s ease, background-color .15s ease, box-shadow .15s ease;
-  &:hover { color: #fff; background: rgba(255,255,255,.06); }
-  &:focus-visible { outline: 2px solid $color-brand; outline-offset: 3px; }
-}
-
-/* ====== MEDIA / FOTOS ====== */
-.AboutPhoto {
-  border-radius: 12px;
-  border: 2px solid rgba(255,255,255,.16);
-  background: rgba(255,255,255,.03);
-  overflow: hidden;
-}
-
-/* Si usas aspect-ratio en figuras o imágenes específicas, déjalo aquí si es “piel” */
 
 /* ====== FIGURES / CAPTIONS ====== */
 figure { margin: 0; }
@@ -157,12 +125,6 @@ figcaption {
 }
 
 /* ====== TEXTOS/PARTES ESPECÍFICAS ====== */
-/* Hero: tamaños/énfasis (estructura quedó en layout) */
-.HeroText {
-  h1 { font-size: clamp(28px, 4vw, 40px); line-height: 1.15; margin: 0; }
-  p  { opacity: .95; margin: 0; }
-}
-
 /* Footer “skin” */
 .Footer {
   color: rgba(255,255,255,.9);
@@ -202,21 +164,6 @@ figcaption {
   font-weight: 800;
   line-height: .95;
   font-size: clamp(40px, 10vw, 120px);
-}
-
-
-// NOTA: Ya tienes algunos botones definidos, estos complementan
-.BtnPrimary,
-.BtnHero {
-  border: 2px solid var(--color-fg);
-  background: transparent;
-  color: var(--color-fg);
-  padding: .8rem 1.2rem;
-  border-radius: 10px;
-  font-weight: 500;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: transform .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease;
 }
 
 .BtnPrimary:hover, .BtnHero:hover,
