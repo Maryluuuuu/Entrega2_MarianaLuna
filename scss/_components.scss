@@ -1,19 +1,5 @@
-.BtnPrimary { @include button($color-brand, #fff); }
-.BtnGhost   { @include button(transparent, $color-fg); border: 1px solid currentColor; }
-
 @keyframes upfade { to { opacity: 1; transform: translateY(0); } }
 .fade-in { opacity: 0; transform: translateY(8px); animation: upfade .35s ease-out forwards; }
-
-/* -------------------------- */
-
-/* =========================
-   COMPONENTS (skin/estética)
-   - Colores, bordes, sombras, radios
-   - Tipografías puntuales de piezas
-   - Transiciones, animaciones
-   - Apariencia de inputs/botones/cards
-   - NO layout (grid/flex) aquí
-   ========================= */
 
 /* Placeholders reutilizables */
 %card {
@@ -48,25 +34,6 @@
     transition: background-color .15s ease, color .15s ease;
     &:hover { background: rgba(255,255,255,.07); }
     &[aria-current="page"] { background: rgba(255,255,255,.10); }
-  }
-}
-
-/* ====== BOTONES ====== */
-@mixin button($bg, $fg) {
-  border: 2px solid $fg;
-  background: transparent;
-  color: $fg;
-  padding: .8rem 1.2rem;
-  border-radius: 10px;
-  font-weight: 500;
-  letter-spacing: .2px;
-  transition: transform .15s, background-color .15s, border-color .15s, box-shadow .15s, color .15s;
-  &:hover, &:focus-visible {
-    background: $bg;
-    border-color: $bg;
-    color: $fg;
-    box-shadow: 0 8px 18px rgba(4,75,180,.35);
-    transform: translateY(-1px);
   }
 }
 
@@ -133,9 +100,6 @@ figcaption {
 }
 
 /* ====== ANIMACIONES ====== */
-@keyframes upfade {
-  to { opacity: 1; transform: translateY(0); }
-}
 .fade-in {
   opacity: 0;
   transform: translateY(8px);
@@ -165,20 +129,6 @@ figcaption {
   line-height: .95;
   font-size: clamp(40px, 10vw, 120px);
 }
-
-.BtnPrimary:hover, .BtnHero:hover,
-.BtnPrimary:focus-visible, .BtnHero:focus-visible {
-  background-color: var(--color-brand);
-  border-color: var(--color-brand);
-  box-shadow: 0 8px 18px rgba(4,75,180,.35);
-  color: var(--color-fg);
-}
-
-@media (max-width: 480px) {
-  .BtnHero { padding: 8px 16px; }
-}
-
-
 
 // Items de portfolio (tarjetas clickeables)
 .PortfolioList li { margin: 0; }
