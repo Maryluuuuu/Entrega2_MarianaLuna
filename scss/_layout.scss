@@ -315,3 +315,19 @@ $bp-sm: 480px; $bp-md: 768px; $bp-lg: 1024px;
 @media (max-width: 640px){
   .GridPortfolio{ grid-template-columns: 1fr; }
 }
+
+// Estructura de la sección Services
+.Services {
+  padding: clamp(48px, 10vh, 120px) 0;
+}
+
+// Estructura de la sección Happy Clients
+.HappyClients {
+  min-height: 90svh;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(24px, 4vh, 48px);
+  padding: clamp(32px, 6vh, 72px) 0;
+}

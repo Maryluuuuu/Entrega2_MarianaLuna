@@ -9,3 +9,248 @@
   @include respond(md){ grid-template-columns: 1fr; gap: 20px; }
   figure { margin: 0; }
 }
+
+
+// Sección About en la página principal
+.AboutMe {
+  padding: clamp(36px, 8vh, 96px) 0;
+  min-height: 90svh;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+}
+
+.AboutPhoto {
+  margin: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #E6EAF1;
+  aspect-ratio: 4/5;
+}
+
+.AboutPhoto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.AboutContent {
+  color: var(--color-fg);
+}
+
+.AboutTitle {
+  margin: 0 0 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  color: var(--color-fg);
+  line-height: 1.1;
+  font-size: clamp(24px, 4.2vw, 44px);
+}
+
+.AboutContent p {
+  margin: 0 0 18px;
+  line-height: 1.8;
+  font-size: clamp(14px, 1.15vw, 18px);
+  opacity: .95;
+}
+
+.AboutBtn {
+  display: inline-block;
+  padding: 14px 20px;
+  border: 2px solid var(--color-fg);
+  background: transparent;
+  color: var(--color-fg);
+  text-decoration: none;
+  font-weight: 700;
+  transition: transform .15s ease, box-shadow .15s ease, background-color .15s ease;
+}
+
+.AboutBtn:hover {
+  background: #0a5ce0;
+  border-color: var(--color-brand);
+  box-shadow: 0 8px 18px rgba(4,75,180,.35);
+}
+
+@media (max-width: 900px) {
+  .AboutBtn { align-self: center; }
+}
+
+// Página dedicada About Me
+.AboutSection {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: clamp(20px, 4vw, 48px);
+  align-items: center;
+  padding-block: clamp(24px, 8vh, 80px);
+}
+
+.AboutSection--reverse {
+  grid-template-columns: 1fr 1.05fr;
+}
+
+.AboutSection--reverse .AboutImg { order: 2; }
+.AboutSection--reverse .AboutCopy { order: 1; }
+
+.AboutImg {
+  border-radius: 16px;
+  overflow: hidden;
+  background: #dfe7f7;
+  box-shadow: 0 8px 22px rgba(0,0,0,.08);
+}
+
+.AboutImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.AboutCopy {
+  color: var(--color-fg);
+}
+
+.AboutH1, .AboutH2 {
+  margin: 0 0 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  line-height: 1.05;
+  color: var(--color-brand);
+}
+
+.AboutH1 {
+  font-size: clamp(28px, 4.6vw, 56px);
+}
+
+.AboutH2 {
+  font-size: clamp(26px, 4vw, 44px);
+}
+
+.AboutCopy p {
+  margin: 0 0 18px;
+  line-height: 1.7;
+  font-size: clamp(14px, 1.1vw, 18px);
+  opacity: .95;
+}
+
+.AboutNote {
+  margin-top: 8px;
+  font-size: clamp(13px, 1vw, 16px);
+  color: var(--color-fg);
+  opacity: .9;
+}
+
+@media (max-width: 900px) {
+  .AboutSection {
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
+  .AboutSection--reverse .AboutImg,
+  .AboutSection--reverse .AboutCopy {
+    order: initial;
+  }
+}
+
+// Página de formulario Work Together
+.WTIntro { 
+  padding-top: .5rem; 
+}
+
+.WTTitle {
+  margin: 0 0 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  line-height: 1.05;
+  color: var(--color-brand);
+  font-size: clamp(28px, 4.6vw, 56px);
+}
+
+.WTLead {
+  margin: 0;
+  max-width: 48ch;
+  line-height: 1.7;
+  font-size: clamp(14px, 1.1vw, 18px);
+  opacity: .95;
+}
+
+.WTLink { 
+  color: var(--color-brand); 
+  text-decoration: underline; 
+}
+
+.WTForm {
+  display: grid;
+  gap: 20px;
+  background: var(--color-fg);
+  color: #1b1a20;
+  border: 1px solid #dfe3ea;
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 8px 22px rgba(0,0,0,.06);
+}
+
+.WTField {
+  display: grid; 
+  gap: 8px;
+}
+
+.WTField--split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px 32px;
+  align-items: end;
+}
+
+.WTForm label {
+  font-weight: 500; 
+  font-size: 14px; 
+  color: #2a2a2a;
+}
+
+.WTForm input,
+.WTForm select,
+.WTForm textarea {
+  background: var(--color-fg);
+  color: #1b1a20;
+  border: 1.5px solid #cfd6e1;
+  border-radius: 8px;
+  padding: .9rem 1rem;
+  font-size: 16px;
+  min-height: 48px;
+}
+
+.WTPhone {
+  display: grid;
+  grid-template-columns: 0.6fr 1fr;
+  gap: 8px;
+}
+
+.WTPhoneCode {
+  background: #f7f9fc;
+  border: 1.5px solid #cfd6e1;
+  border-radius: 8px;
+  padding: .55rem .6rem;
+  font-size: 15px;
+}
+
+.WTSubmit {
+  margin-top: 4px;
+  border-color: var(--color-brand);
+  background: var(--color-brand);
+  color: #fff;
+}
+
+.WTSubmit:hover, 
+.WTSubmit:focus-visible {
+  background: var(--color-brand);
+  border-color: var(--color-brand);
+}
+
+@media (max-width: 900px) {
+  .WTField--split { 
+    grid-template-columns: 1fr; 
+  }
+}
