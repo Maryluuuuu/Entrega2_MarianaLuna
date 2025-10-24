@@ -109,7 +109,7 @@ nav ul li a {
 /* ===== BASE / RESET (globales) ===== */
 /* 1) Variables CSS de runtime (opcional si ya tienes vars SASS) */
 :root {
-  --color-bg: #151419; /* Aujstar paleta */
+  --color-bg: #151419; /* Ajustar paleta */
   --color-fg: #ffffff;
   --color-brand: #044BB4;
   --maxw: 1200px;
@@ -208,7 +208,7 @@ button, input, textarea, select{
 .header .HeaderNav nav ul {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 12px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -418,7 +418,6 @@ button, input, textarea, select{
     gap: 20px;
   }
 }
-/* ------------------------ */
 /* ===== Home: Services (grilla) ===== */
 .ServicesGrid {
   max-width: 1200px;

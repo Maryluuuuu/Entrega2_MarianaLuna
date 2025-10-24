@@ -9,7 +9,7 @@
     padding-block: 12px;
 
     nav ul {
-      display: flex; flex-wrap: wrap; gap: 16px;
+      display: flex; flex-wrap: wrap; gap: 12px;
       margin: 0; padding: 0; list-style: none;
     }
 
@@ -159,8 +159,6 @@
 @media (max-width:768px){
   .PortfolioList{ grid-template-columns: 1fr; gap: 20px; }
 }
-
-/* ------------------------ */
 
 /* ===== Home: Services (grilla) ===== */
 .ServicesGrid {
