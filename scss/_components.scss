@@ -1,5 +1,4 @@
 @keyframes upfade { to { opacity: 1; transform: translateY(0); } }
-.fade-in { opacity: 0; transform: translateY(8px); animation: upfade .35s ease-out forwards; }
 
 /* Placeholders reutilizables */
 %card {
